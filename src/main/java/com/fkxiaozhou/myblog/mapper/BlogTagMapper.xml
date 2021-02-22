@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkxiaozhou.myblog.mapper.BlogTagMapper">
+  <resultMap id="BaseResultMap" type="com.fkxiaozhou.myblog.entity.BlogTag">
+    <!--@mbg.generated-->
+    <!--@Table blog_tag-->
+    <id column="id" property="id" />
+    <result column="tag_name" property="tagName" />
+    <result column="tag_number" property="tagNumber" />
+    <result column="create_by" property="createBy" />
+    <result column="modified_by" property="modifiedBy" />
+    <result column="is_effective" property="isEffective" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, tag_name, tag_number, create_by, modified_by, is_effective
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from blog_tag
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from blog_tag
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogTag" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_tag (tag_name, tag_number, create_by, modified_by, is_effective)
+    values (#{tagName}, #{tagNumber}, #{createBy}, #{modifiedBy}, #{isEffective})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogTag" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_tag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tagName != null">
+        tag_name,
+      </if>
+      <if test="tagNumber != null">
+        tag_number,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifiedBy != null">
+        modified_by,
+      </if>
+      <if test="isEffective != null">
+        is_effective,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tagName != null">
+        #{tagName},
+      </if>
+      <if test="tagNumber != null">
+        #{tagNumber},
+      </if>
+      <if test="createBy != null">
+        #{createBy},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy},
+      </if>
+      <if test="isEffective != null">
+        #{isEffective},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fkxiaozhou.myblog.entity.BlogTag">
+    <!--@mbg.generated-->
+    update blog_tag
+    <set>
+      <if test="tagName != null">
+        tag_name = #{tagName},
+      </if>
+      <if test="tagNumber != null">
+        tag_number = #{tagNumber},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy},
+      </if>
+      <if test="modifiedBy != null">
+        modified_by = #{modifiedBy},
+      </if>
+      <if test="isEffective != null">
+        is_effective = #{isEffective},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fkxiaozhou.myblog.entity.BlogTag">
+    <!--@mbg.generated-->
+    update blog_tag
+    set tag_name = #{tagName},
+      tag_number = #{tagNumber},
+      create_by = #{createBy},
+      modified_by = #{modifiedBy},
+      is_effective = #{isEffective}
+    where id = #{id}
+  </update>
+</mapper>

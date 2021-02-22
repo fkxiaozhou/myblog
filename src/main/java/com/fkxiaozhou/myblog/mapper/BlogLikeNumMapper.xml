@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkxiaozhou.myblog.mapper.BlogLikeNumMapper">
+  <resultMap id="BaseResultMap" type="com.fkxiaozhou.myblog.entity.BlogLikeNum">
+    <!--@mbg.generated-->
+    <!--@Table blog_like_num-->
+    <id column="id" property="id" />
+    <result column="views" property="views" />
+    <result column="create_by" property="createBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, views, create_by
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from blog_like_num
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from blog_like_num
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogLikeNum" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_like_num (views, create_by)
+    values (#{views}, #{createBy})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogLikeNum" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_like_num
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="views != null">
+        views,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="views != null">
+        #{views},
+      </if>
+      <if test="createBy != null">
+        #{createBy},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fkxiaozhou.myblog.entity.BlogLikeNum">
+    <!--@mbg.generated-->
+    update blog_like_num
+    <set>
+      <if test="views != null">
+        views = #{views},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fkxiaozhou.myblog.entity.BlogLikeNum">
+    <!--@mbg.generated-->
+    update blog_like_num
+    set views = #{views},
+      create_by = #{createBy}
+    where id = #{id}
+  </update>
+</mapper>

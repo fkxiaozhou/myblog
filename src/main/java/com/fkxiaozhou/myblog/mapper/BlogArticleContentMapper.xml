@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkxiaozhou.myblog.mapper.BlogArticleContentMapper">
+  <resultMap id="BaseResultMap" type="com.fkxiaozhou.myblog.entity.BlogArticleContent">
+    <!--@mbg.generated-->
+    <!--@Table blog_article_content-->
+    <id column="id" property="id" />
+    <result column="article_content" property="articleContent" />
+    <result column="article_id" property="articleId" />
+    <result column="create_by" property="createBy" />
+    <result column="modified_by" property="modifiedBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, article_content, article_id, create_by, modified_by
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from blog_article_content
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from blog_article_content
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleContent" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_article_content (article_content, article_id, create_by, modified_by)
+    values (#{articleContent}, #{articleId}, #{createBy}, #{modifiedBy})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleContent" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_article_content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleContent != null">
+        article_content,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifiedBy != null">
+        modified_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleContent != null">
+        #{articleContent},
+      </if>
+      <if test="articleId != null">
+        #{articleId},
+      </if>
+      <if test="createBy != null">
+        #{createBy},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleContent">
+    <!--@mbg.generated-->
+    update blog_article_content
+    <set>
+      <if test="articleContent != null">
+        article_content = #{articleContent},
+      </if>
+      <if test="articleId != null">
+        article_id = #{articleId},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy},
+      </if>
+      <if test="modifiedBy != null">
+        modified_by = #{modifiedBy},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleContent">
+    <!--@mbg.generated-->
+    update blog_article_content
+    set article_content = #{articleContent},
+      article_id = #{articleId},
+      create_by = #{createBy},
+      modified_by = #{modifiedBy}
+    where id = #{id}
+  </update>
+</mapper>

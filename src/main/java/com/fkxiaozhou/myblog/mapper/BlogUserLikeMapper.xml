@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkxiaozhou.myblog.mapper.BlogUserLikeMapper">
+  <resultMap id="BaseResultMap" type="com.fkxiaozhou.myblog.entity.BlogUserLike">
+    <!--@mbg.generated-->
+    <!--@Table blog_user_like-->
+    <id column="id" property="id" />
+    <result column="user_name" property="userName" />
+    <result column="article_id" property="articleId" />
+    <result column="like_status" property="likeStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_name, article_id, like_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from blog_user_like
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from blog_user_like
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogUserLike" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_user_like (user_name, article_id, like_status)
+    values (#{userName}, #{articleId}, #{likeStatus})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogUserLike" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_user_like
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="likeStatus != null">
+        like_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName},
+      </if>
+      <if test="articleId != null">
+        #{articleId},
+      </if>
+      <if test="likeStatus != null">
+        #{likeStatus},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fkxiaozhou.myblog.entity.BlogUserLike">
+    <!--@mbg.generated-->
+    update blog_user_like
+    <set>
+      <if test="userName != null">
+        user_name = #{userName},
+      </if>
+      <if test="articleId != null">
+        article_id = #{articleId},
+      </if>
+      <if test="likeStatus != null">
+        like_status = #{likeStatus},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fkxiaozhou.myblog.entity.BlogUserLike">
+    <!--@mbg.generated-->
+    update blog_user_like
+    set user_name = #{userName},
+      article_id = #{articleId},
+      like_status = #{likeStatus}
+    where id = #{id}
+  </update>
+</mapper>

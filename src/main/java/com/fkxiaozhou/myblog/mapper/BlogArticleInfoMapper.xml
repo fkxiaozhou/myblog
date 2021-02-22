@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkxiaozhou.myblog.mapper.BlogArticleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.fkxiaozhou.myblog.entity.BlogArticleInfo">
+    <!--@mbg.generated-->
+    <!--@Table blog_article_info-->
+    <id column="id" property="id" />
+    <result column="author" property="author" />
+    <result column="article_title" property="articleTitle" />
+    <result column="article_views" property="articleViews" />
+    <result column="create_by" property="createBy" />
+    <result column="modified_by" property="modifiedBy" />
+    <result column="is_delete" property="isDelete" />
+    <result column="like_num" property="likeNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, author, article_title, article_views, create_by, modified_by, is_delete, like_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from blog_article_info
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from blog_article_info
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_article_info (author, article_title, article_views, create_by, modified_by, 
+      is_delete, like_num)
+    values (#{author}, #{articleTitle}, #{articleViews}, #{createBy}, #{modifiedBy}, 
+      #{isDelete}, #{likeNum})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into blog_article_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="author != null">
+        author,
+      </if>
+      <if test="articleTitle != null">
+        article_title,
+      </if>
+      <if test="articleViews != null">
+        article_views,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="modifiedBy != null">
+        modified_by,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="likeNum != null">
+        like_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="author != null">
+        #{author},
+      </if>
+      <if test="articleTitle != null">
+        #{articleTitle},
+      </if>
+      <if test="articleViews != null">
+        #{articleViews},
+      </if>
+      <if test="createBy != null">
+        #{createBy},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete},
+      </if>
+      <if test="likeNum != null">
+        #{likeNum},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleInfo">
+    <!--@mbg.generated-->
+    update blog_article_info
+    <set>
+      <if test="author != null">
+        author = #{author},
+      </if>
+      <if test="articleTitle != null">
+        article_title = #{articleTitle},
+      </if>
+      <if test="articleViews != null">
+        article_views = #{articleViews},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy},
+      </if>
+      <if test="modifiedBy != null">
+        modified_by = #{modifiedBy},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete},
+      </if>
+      <if test="likeNum != null">
+        like_num = #{likeNum},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fkxiaozhou.myblog.entity.BlogArticleInfo">
+    <!--@mbg.generated-->
+    update blog_article_info
+    set author = #{author},
+      article_title = #{articleTitle},
+      article_views = #{articleViews},
+      create_by = #{createBy},
+      modified_by = #{modifiedBy},
+      is_delete = #{isDelete},
+      like_num = #{likeNum}
+    where id = #{id}
+  </update>
+</mapper>
