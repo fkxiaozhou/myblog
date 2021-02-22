@@ -25,6 +25,7 @@ public class BlogTag implements Serializable {
     private String tagName;
 
     /**
+     * 
     * 数量
     */
     @ApiModelProperty(value="数量")
